@@ -13,18 +13,22 @@ class Usuario {
 
 //Array:
 const usuarios = [
-    { 
-        nombre: "Pedro", 
-        nroCuenta: "223344", 
+    {
+        nombre: "Pedro",
+        nroCuenta: "223344",
         saldo: 1200,
     },
-    {  
-       nombre: "Marcos", 
-       nroCuenta: "554433", 
-       saldo: 5400,
+    {
+        nombre: "Marcos",
+        nroCuenta: "554433",
+        saldo: 5400,
     }
-    
+
 ];
+
+const usuariosJSON = JSON.stringify(usuarios);
+localStorage.setItem("usuarios", usuariosJSON);
+
 
 // Funciones:
 
@@ -43,52 +47,80 @@ function ingresarUsuario() {
 }
 
 function crearUsuario() {
-    const nuevoNombre = prompt("Ingrese su nombre de usuario");
-    const numeroCuenta = prompt("Ingrese su numero de cuenta");
+    let nuevoNombre = document.getElementById("crearNombre").value;
+    let numeroCuenta = document.getElementById("crearNroCuenta").value;
     const nuevoSaldo = 0;
     const nuevoUsuario = new Usuario(nuevoNombre, numeroCuenta, nuevoSaldo);
     usuarios.push(nuevoUsuario);
-    alert("Su usuario se ha creado con exito");
-}
+    if (nuevoNombre !== usuarios.nombre && numeroCuenta !== usuarios.nroCuenta) {
+        let padreCrear = document.getElementById("datosCrear");
+        let datosCrear = document.createElement("h3");
+        datosCrear.innerHTML = "El usuario " + nuevoNombre + " con el numero de cuenta " + numeroCuenta + " se ha ingresado con exito.";
+        padreCrear.appendChild(datosCrear);
+        const nuevoUsuarioJSON = JSON.stringify(nuevoUsuario);
+        localStorage.setItem("usuario nuevo", nuevoUsuarioJSON);
+        console.log(usuarios);
+    } else {
+        let padreCrear = document.getElementById("datosCrear");
+        let errorCrear = document.createElement("h3");
+        errorCrear.innerHTML = "El usuarios ya existe o le faltan completar datos";
+        padreCrear.appendChild(errorCrear);
+
+    }
+};
+
+
 
 function solicitarPrestamo() {
-    nombre = prompt("Ingrese su nombre de usuario");
-    numeroCuentaPrestamo = prompt("Ingrese su numero de cuenta");
+    nombre = document.getElementById("nombrePrestamo").value;
+    numeroCuentaPrestamo = document.getElementById("nroCuentaPrestamo").value;
+    let montoDeDinero = parseInt(document.getElementById("montoPrestamo").value);
+    let cantidadDeCuotas = parseInt(document.getElementById("cuotasPrestamo").value);
     const encontrarNroCuenta = usuarios.some((usuarios) => usuarios.nroCuenta === numeroCuentaPrestamo);
-
-    if (encontrarNroCuenta === true) {
-        console.log("Su numero de cuenta es correcto");
-    } else {
-        console.log("El numero ingresado no existe");
-        alert("El numero de cuenta que ingreso no existe");
-        numeroCuenta = prompt("Ingrese su numero de cuenta nuevamente");
-    }
-
-    let montoDeDinero = parseInt(prompt("Ingrese el monto de dinero que necesita"));
-    let cantidadDeCuotas = parseInt(prompt("Ingrese la cantidad de cuotas que desee"));
     const tazaUno = 0.15;
     const tazaDos = 0.10;
 
-    if (cantidadDeCuotas <= 6) {
-        console.log("Deberá pagar un total de $" + (montoDeDinero + montoDeDinero * tazaDos));
-        console.log("En " + cantidadDeCuotas + " cuotas de $" + (montoDeDinero + montoDeDinero * tazaDos) / cantidadDeCuotas);
+    if (encontrarNroCuenta === true && cantidadDeCuotas <= 6) {
+        let padrePrestamo = document.getElementById("datosPrestamo");
+        let datosPrestamo = document.createElement("h3");
+        datosPrestamo.innerHTML = "Su numero de cuenta es correcto " +
+            ". Deberá pagar un total de $" + (montoDeDinero + montoDeDinero * tazaDos) +
+            " en " + cantidadDeCuotas + " cuotas de $" + (montoDeDinero + montoDeDinero * tazaDos) / cantidadDeCuotas;
+        padrePrestamo.appendChild(datosPrestamo);
+    } else if (encontrarNroCuenta === true && cantidadDeCuotas >= 7) {
+        const padrePrestamo = document.getElementById("datosPrestamo");
+        const datosPrestamo = document.createElement("h3");
+        datosPrestamo.innerHTML = "Su numero de cuenta es correcto " +
+            ". Deberá pagar un total de $" + (montoDeDinero + montoDeDinero * tazaUno) +
+            " en " + cantidadDeCuotas + " cuotas de $" + (montoDeDinero + montoDeDinero * tazaUno) / cantidadDeCuotas;
+        padrePrestamo.appendChild(datosPrestamo);
     } else {
-        console.log("Deberá pagar un total de $" + (montoDeDinero + montoDeDinero * tazaUno));
-        console.log("En " + cantidadDeCuotas + " cuotas de $" + (montoDeDinero + montoDeDinero * tazaUno) / cantidadDeCuotas);
+        const padrePrestamo = document.getElementById("datosPrestamo");
+        const datosPrestamo = document.createElement("h3");
+        datosPrestamo.innerHTML = "El numero ingresado no existe.";
+        padrePrestamo.appendChild(datosPrestamo);
     }
-}
+};
+
 
 function buscarUsuario() {
 
-    let nombreUsuario = prompt("Ingrese el nombre del usuario que desea buscar");
+    let nombreUsuario = document.getElementById("buscarUnUsuario").value;
     const encontrar = usuarios.some((usuarios) => usuarios.nombre === nombreUsuario);
 
-   if(encontrar === true){
-    console.log("El usuario que busca si existe");
-   }else{
-    console.log("El usuario no existe");
-   }
-}
+    if (encontrar === true) {
+        let padreBuscar = document.getElementById("datosBuscar");
+        let datosBuscar = document.createElement("h3");
+        datosBuscar.innerHTML = "El usuario " + nombreUsuario + " existe en nuestra lista de usuarios."
+        padreBuscar.appendChild(datosBuscar);
+    } else {
+        let padreBuscar = document.getElementById("datosBuscar");
+        let datosBuscar = document.createElement("h3");
+        datosBuscar.innerHTML = "El usuario " + nombreUsuario + " no existe en nuestra lisata de usuarios."
+        padreBuscar.appendChild(datosBuscar);
+    }
+
+};
 
 // Funcion de ornden superor:
 
@@ -108,10 +140,8 @@ if (cantidadDeMeses <= 6){
 }*/
 
 
-ingresarUsuario()
 
-
-let operacion = prompt("Seleccione la operacion que desea realizar: 1-Crear usuario, 2-Solicitar prestamo, 3-Buscar usuario, -Salir-");
+/*let operacion = prompt("Seleccione la operacion que desea realizar: 1-Crear usuario, 2-Solicitar prestamo, 3-Buscar usuario, -Salir-");
 
 while (operacion !== "Salir") {
 
@@ -135,6 +165,6 @@ while (operacion !== "Salir") {
     }
 
     operacion = prompt("Seleccione la operacion que desea realizar: 1-Crear usuario, 2-Solicitar prestamo, 3-Buscar usuario, -Salir-");
-}
+}*/
 
 

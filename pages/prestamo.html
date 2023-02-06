@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto</title>
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="../scss/style.css">
+</head>
+
+<body>
+  <header>
+    <!--Barra de navegacion de bootstrap-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../index.html">Crear o buscar un usuario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./prestamo.html">Solicitar un prestamo</a>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="t-prestamos">
+        <h1>Solicitar prestamo</h1>
+      </div>
+      <br>
+      <form>
+        <fieldset>
+          <legend>Formulario de prestamo</legend>
+          <br>
+          <br>
+          <div>
+            <label for="">Nombre:</label>
+            <input id="nombrePrestamo" type="text" placeholder="Nombre">
+          </div>
+          <br>
+          <div>
+            <label for="">Numero de cuenta:</label>
+            <input id="nroCuentaPrestamo" type="text" placeholder="Numero de cuenta">
+          </div>
+          <br>
+          <div>
+            <label for="">Monto de dinero:</label>
+            <input id="montoPrestamo" type="text" placeholder="Monto de dinero">
+          </div>
+          <br>
+          <div>
+            <label for="">Cantidad de cuotas:</label>
+            <input id="cuotasPrestamo" type="text" placeholder="Cantidad de cuotas">
+          </div>
+          <br>
+          <button class="btn" id="enviarDatos" type="button" onclick="solicitarPrestamo()">Enviar</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <div class="resultado" id="datosPrestamo">
+      <h2>Resulatado:</h2>
+    </div>
+
+  </main>
+
+  <footer>
+    <h4>siguenos en nuestras redes</h4>
+    <a href="https://www.facebook.com/">
+      <img class="logo" src="../assets/imagenes/facebook.svg"  alt="Logo que te redirije a nuestro Facebook">
+    </a>
+    <a href="https://twitter.com/">
+      <img class="logo" src="../assets/imagenes/twitter.svg"  alt="Logo que te redirije nuestro Twitter">
+    </a>
+    <a href="https://www.instagram.com/">
+      <img class="logo" src="../assets/imagenes/instagram.svg"  alt="Logo que te redirije a nuestro Instagram">
+    </a>
+
+  </footer>
+
+
+
+
+  <!--Bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+
+  <script src="../main.js"></script>
+</body>

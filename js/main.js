@@ -69,8 +69,6 @@ function crearUsuario() {
     }
 };
 
-
-
 function solicitarPrestamo() {
     nombre = document.getElementById("nombrePrestamo").value;
     numeroCuentaPrestamo = document.getElementById("nroCuentaPrestamo").value;
@@ -102,7 +100,6 @@ function solicitarPrestamo() {
     }
 };
 
-
 function buscarUsuario() {
 
     let nombreUsuario = document.getElementById("buscarUnUsuario").value;
@@ -120,51 +117,42 @@ function buscarUsuario() {
         padreBuscar.appendChild(datosBuscar);
     }
 
+
 };
 
-// Funcion de ornden superor:
+function renderizarEquipo(integrantes) {
+    informacion.innerHTML = "";
 
-/*function calcularRecargo (porcentaje){
-    return (monto) => (porcentaje * monto) / 100;
-}
-const seisOmenos = calcularRecargo(10);
-const sieteOmas = calcularRecargo(15);
+    for (const integrante of integrantes) {
+        const div = document.createElement("div");
 
-let monto = parseInt(prompt("Ingrese el monto que desea verificar"));
-let cantidadDeMeses = parseInt(prompt("Ingrese la cantidad de meses"));
+        const h2 = document.createElement("h2");
+        h2.innerHTML = `${integrante.nombre}`;
 
-if (cantidadDeMeses <= 6){
-    console.log(seisOmenos(monto));
-}else{
-    console.log(sieteOmas(monto));
-}*/
+        const h3 = document.createElement("h3");
+        h3.innerHTML = `${integrante.puesto}`;
 
+        const h4 = document.createElement("h4");
+        h4.innerHTML = `${integrante.mail}`;
 
+        div.append(h2, h3, h4);
 
-/*let operacion = prompt("Seleccione la operacion que desea realizar: 1-Crear usuario, 2-Solicitar prestamo, 3-Buscar usuario, -Salir-");
-
-while (operacion !== "Salir") {
-
-    switch (operacion) {
-
-        case "1":
-            crearUsuario()
-            console.log(usuarios);
-            break;
-
-        case "2":
-            solicitarPrestamo()
-            break;
-
-        case "3":
-            buscarUsuario()
-            break;
-
-        default:
-            console.log("La operacion no existe");
+        informacion.append(div);
     }
+}
 
-    operacion = prompt("Seleccione la operacion que desea realizar: 1-Crear usuario, 2-Solicitar prestamo, 3-Buscar usuario, -Salir-");
-}*/
+fetch("/js/integrantes.json")
+    .then((response) => {
+        return response.json();
+    })
+    .then((responseIntegrantes) => {
+        console.log(responseIntegrantes);
+
+        renderizarEquipo(responseIntegrantes);
+
+    })
+
+
+
 
 

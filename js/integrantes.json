@@ -1,0 +1,27 @@
+[
+    {
+        "nombre": "Guillermo Perez",
+        "puesto": "Director ejecutivo CEO",
+        "mail": "guillermoPerez@mail.com"
+    },
+    {
+        "nombre": "Camila Rodriguez",
+        "puesto": "Directora de operaciones COO",
+        "mail": "camilarodriguez@mail.com"
+    },
+    {
+        "nombre": "Rodrigo Fernandez",
+        "puesto": "Director de recursos humanos CHRO",
+        "mail": "rodrigofernandez@mail.com"
+    },
+    {
+        "nombre": "Florencia Martinez",
+        "puesto": "Directora de marketing CMO",
+        "mail": "florenciamartinez@mail.com"
+    },
+    {
+        "nombre": "Joaquin gomez",
+        "puesto": "Director financiero CFO",
+        "mail": "joaquiongomez@mail.com"
+    }
+]

@@ -52,9 +52,8 @@ body {
         }
 
         li {
-            margin: 0.5vh;
+            margin: 4vh 20vh 2vh 3vh;
             padding: 0 2vh;
-            margin-left: 25vh;
             font-weight: bold;
 
             &:hover {
@@ -83,14 +82,48 @@ body {
         section {
             background-color: rgba(41, 156, 93, 0.712);
             border-radius: 1rem;
+            width: 60vh;
             padding: 3vh;
-            margin: 4vh;
+            margin: 5vh 0 5vh 0;
+            border: 0.5vh solid rgb(182, 247, 169);
+        }
+
+        .informacion {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100vh;
+            height: 50vh;
+            justify-content: space-between;
+        }
+
+        .info {
+            background-color: rgba(41, 156, 93, 0.712);
+            border: 0.5vh solid rgb(182, 247, 169);
+            border-radius: 1rem;
+            font-family: 'Varela Round', sans-serif;
+            padding: 1vh;
+            margin-top: 5vh;
+        }
+
+
+        .h3_info {
+            font-weight: bold;
+            font-size: 5vh;
         }
 
         h1 {
             display: flex;
-            justify-content: center;
             font-family: 'Varela Round', sans-serif;
+        }
+
+        .h1-pres {
+            background-color: rgba(41, 156, 93, 0.712);
+            border: 0.5vh solid rgb(182, 247, 169);
+            border-radius: 1rem;
+            font-family: 'Varela Round', sans-serif;
+            margin-top: 5vh;
+            padding: 1vh;
         }
 
 
@@ -138,11 +171,31 @@ body {
 
         }
 
+        .t-crear {
+            display: flex;
+            width: 60vh;
+            align-items: center;
+
+        }
+
+        .t-buscar {
+            display: flex;
+            width: 60vh;
+        }
+
+        .t-prestamos {
+            display: flex;
+            justify-content: center;
+
+            width: 70vh;
+            margin: 7vh;
+        }
+
         .resultado {
             display: flex;
             margin-bottom: 4vh;
             height: 13vh;
-            width: 80vh;
+            width: 70vh;
             overflow: hidden;
             background-color: rgba(41, 156, 93, 0.712);
             border-radius: 1rem;
@@ -166,6 +219,20 @@ body {
             font-size: 2.5vh;
 
         }
+
+        h4 {
+            padding: 1vh;
+        }
+
+        p {
+            display: flex;
+            justify-content: center;
+            font-size: 2vh;
+            font-family: 'Varela Round', sans-serif;
+            margin: 2vh;
+
+        }
+
     }
 
     footer {
@@ -190,11 +257,11 @@ body {
     }
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 1200px) {
     .box {
-        grid-template-areas: "encabezado   encabezado"
-            "seccion  seccion"
-            "pie   pie";
+        width: 100%;
+        display: grid;
+        grid-template-areas: "encabezado encabezado" "seccion    seccion" "pie         pie";
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 10fr 1fr;
     }
@@ -202,160 +269,352 @@ body {
     body {
         background-image: url(../assets/imagenes/background-mobile.png);
         background-size: cover;
-        height: 100%;
-        position: relative;
+        background-size: 100%;
         min-height: 100vh;
+        background-repeat: no-repeat;
+        position: relative;
         overflow-x: hidden;
-    }
 
-    header {
-        grid-area: encabezado;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
 
-        .navbar {
+
+        header {
+            grid-area: encabezado;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 8.5vh;
             width: 100%;
-            z-index: 1;
+            padding: 0.5vh 10%;
+            font-size: 1.5rem;
 
-            &:hover {
-                background-color: rgba(182, 247, 169, 0.63);
-                border-radius: 1vh;
-                z-index: 1;
+
+            .navbar {
+                width: 100%;
+                list-style: none;
+                background: none;
+                margin-top: 4vh;
+                border-radius: 2vh;
+
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            li {
+                display: flex;
+                text-align: center;
+                margin: 4vh 20vh 2vh 3vh;
+                padding: 0 2vh;
+                font-weight: bold;
+                font-size: 2vh;
+
+
+                &:hover {
+                    border: 0.5vh solid rgba(41, 156, 93, 0.712);
+                    border-radius: 10vh 0 10vh 0;
+                    background-color: rgb(182, 247, 169);
+                    transition: all 0.1s ease;
+                }
+            }
+
+            a {
+                margin: 1rem;
             }
         }
 
-        ul {
-            margin-left: 7vh;
+
+        main {
+            grid-area: seccion;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+
+            section {
+                background-color: rgba(41, 156, 93, 0.712);
+                border-radius: 1rem;
+                width: 60vh;
+                padding: 3vh;
+                margin: 5vh 0 5vh 0;
+                border: 0.5vh solid rgb(182, 247, 169);
+            }
+
+            .informacion {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100vh;
+                height: 50vh;
+                justify-content: space-between;
+            }
+
+            .info {
+                background-color: rgba(41, 156, 93, 0.712);
+                border: 0.5vh solid rgb(182, 247, 169);
+                border-radius: 1rem;
+                font-family: 'Varela Round', sans-serif;
+                padding: 1vh;
+                margin-top: 5vh;
+            }
+
+            .h3_info {
+                font-weight: bold;
+                font-size: 4vh;
+            }
+
+            h1 {
+                display: flex;
+                justify-content: center;
+                font-family: 'Varela Round', sans-serif;
+            }
+
+
+            form {
+                font-size: 2vh;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Varela Round', sans-serif;
+            }
+
+            label {
+                font-size: 1.3rem;
+                color: black;
+            }
+
+            input {
+                background: none;
+                border: none;
+                outline: 0px;
+                margin-bottom: 8%;
+                border-bottom: 1px solid rgb(182, 247, 169);
+
+            }
+
+            input:focus {
+                color: black;
+                border-bottom: 3px solid rgb(182, 247, 169);
+                transition: all 0.1s ease;
+            }
+
+            .btn {
+                font-weight: bold;
+                border: 0.5vh solid rgb(182, 247, 169);
+                border-radius: 2vh;
+                background-color: rgb(41, 156, 93);
+
+                &:hover {
+                    background-color: rgb(182, 247, 169);
+                    border-radius: 10vh 0 10vh 0;
+                    border: 0.5vh solid rgb(182, 247, 169);
+                    font-weight: bold;
+                }
+
+            }
+
+            .resultado {
+                display: flex;
+                margin-bottom: 4vh;
+                height: 13vh;
+                width: 70vh;
+                overflow: hidden;
+                background-color: rgba(41, 156, 93, 0.712);
+                border-radius: 1rem;
+                border: 0.5vh solid rgb(182, 247, 169);
+
+            }
+
+            h3 {
+                display: flex;
+                justify-content: center;
+                margin-top: 1vh;
+                font-size: 2vh;
+                font-weight: bold;
+                font-family: 'Varela Round', sans-serif;
+            }
+
+            h2 {
+                margin: 1vh;
+                font-family: 'Varela Round', sans-serif;
+                font-weight: bold;
+                font-size: 2.5vh;
+
+            }
+
+            h4 {
+                padding: 1vh;
+            }
+
+            p {
+                display: flex;
+                justify-content: center;
+                font-size: 2vh;
+                font-family: 'Varela Round', sans-serif;
+                margin: 2vh;
+
+            }
+
         }
 
-        li {
+        footer {
+            grid-area: pie;
             display: flex;
-            align-items: center;
+            text-align: center;
             justify-content: center;
-            margin: 1vh;
+            margin-top: 3vh;
+            border-top: 0.5vh solid rgb(182, 247, 169);
+            background-color: rgba(41, 156, 93, 0.712);
+            font-family: 'Varela Round', sans-serif;
+
+            .logo {
+                width: 4vh;
+                margin: 1vh 0 0 1vh;
+
+            }
+
+            h4 {
+                margin-top: 1vh;
+            }
         }
     }
 }
 
-main {
-    grid-area: seccion;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    overflow-x: hidden;
-
-
-    section {
-        background-color: rgba(41, 156, 93, 0.712);
-        border-radius: 1rem;
-        padding: 3vh;
-        margin: 4vh;
+@media screen and (max-width: 860px) {
+    .box {
+        width: 100%;
+        display: grid;
+        grid-template-areas: "encabezado encabezado" "seccion    seccion" "pie         pie";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 10fr 1fr;
+        overflow-x: hidden;
     }
 
-    h1 {
-        display: flex;
-        justify-content: center;
-        font-family: 'Varela Round', sans-serif;
-    }
+    body {
+        background-image: url(../assets/imagenes/background-mobile.png);
+        background-size: cover;
+        background-size: 100%;
+        min-height: 100vh;
+        background-repeat: no-repeat;
+        position: relative;
+        
 
+        header {
+            grid-area: encabezado;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 8.5vh;
+            width: 100%;
+            padding: 0.5vh 10%;
+            font-size: 1.5rem;
 
-    form {
-        font-size: 1vh;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Varela Round', sans-serif;
-    }
+            .navbar-toggler{
+                position: absolute;
+            }
+            ul{
+                display: flex;
+                margin-left: 3vh;
+                background-color:rgba(182, 247, 169, 0.582) ;
+                border: 0.5vh solid rgba(41, 156, 93, 0.712);
+                border-radius: 10vh;
+                position: absolute;
+            }
 
-    label {
-        font-size: 1rem;
-        color: black;
-    }
-
-    input {
-        background: none;
-        border: none;
-        outline: 0px;
-        margin-bottom: 8%;
-        border-bottom: 1px solid rgb(182, 247, 169);
-
-    }
-
-    input:focus {
-        color: black;
-        border-bottom: 3px solid rgb(182, 247, 169);
-        transition: all 0.1s ease;
-    }
-
-    .btn {
-        font-weight: bold;
-        border: 0.5vh solid rgb(182, 247, 169);
-        border-radius: 2vh;
-        background-color: rgb(41, 156, 93);
-
-        &:hover {
-            background-color: rgb(182, 247, 169);
-            border-radius: 10vh 0 10vh 0;
-            border: 0.5vh solid rgb(182, 247, 169);
-            font-weight: bold;
+            li{
+                display: flex;
+                border: 0.5vh solid rgba(41, 156, 93, 0.712);
+                border-radius: 10vh 0 10vh 0;
+                background-color: rgb(182, 247, 169);
+            }
         }
 
-    }
+        main {
+            grid-area: seccion;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
 
-    #datosCrear {
-        display: flex;
-        margin: 0 6vh 4vh 6vh;
-        height: 13vh;
-        width: 60vh;
-        overflow: hidden;
-        background-color: rgba(41, 156, 93, 0.712);
-        border-radius: 1rem;
-        border: 0.5vh solid rgb(182, 247, 169);
+        
+            .informacion {
+                display: flex;
+                width: 60vh;
+                justify-content: center;
+                align-items: center;
+                overflow: scroll;
+            }
 
-    }
-
-    #datosPrestamo {
-        display: flex;
-        margin: 0 6vh 4vh 6vh;
-        height: 13vh;
-        width: 60vh;
-        overflow: hidden;
-        background-color: rgba(41, 156, 93, 0.712);
-        border-radius: 1rem;
-        border: 0.5vh solid rgb(182, 247, 169);
+          }
 
     }
-    #datosBuscar {
-        display: flex;
-        margin: 0 6vh 4vh 6vh;
-        height: 13vh;
-        width: 60vh;
-        overflow: hidden;
-        background-color: rgba(41, 156, 93, 0.712);
-        border-radius: 1rem;
-        border: 0.5vh solid rgb(182, 247, 169);
+}
+ 
 
+@media screen and (max-width: 520px) {
+
+    .box {
+        width: 100%;
+        display: grid;
+        grid-template-areas: "encabezado encabezado" "seccion    seccion" "pie         pie";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 10fr 1fr;
     }
 
-    h3 {
+    body {
+        background-image: url(../assets/imagenes/background-mobile.png);
+        background-size: cover;
+        background-size: 100%;
+        min-height: 100%;
+        background-repeat: no-repeat;
+        position: relative;
+        overflow-x: hidden;
+
+        header {
+            grid-area: encabezado;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 8.5vh;
+            width: 100%;
+            padding: 0.5vh 10%;
+            font-size: 1.5rem;
+        }
+
+
+
+    
+
+    main {
+        grid-area: seccion;
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        margin-top: 1vh;
-        font-size: 2vh;
-        font-weight: bold;
-        font-family: 'Varela Round', sans-serif;
-    }
+        align-items: center;
+        height: 100%;
 
-    h2 {
-        margin: 1vh;
-        font-family: 'Varela Round', sans-serif;
-        font-weight: bold;
-        font-size: 2.5vh;
+        .informacion {
+            display: flex;
+            width: 50vh;
+            height: 40vh;
+            justify-content: center;
+            align-items: center;
+            overflow: scroll;
+        }
+
+        .info{
+            display: flex;
+            margin: 1vh;
+        }
+
 
     }
+}
 }
